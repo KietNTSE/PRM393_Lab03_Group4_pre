@@ -19,58 +19,53 @@
 
   <style>
     :root {
-      --bg-dark: #0a0f1d;
-      --bg-card: rgba(18, 26, 47, 0.85);
-      --border-card: rgba(255, 255, 255, 0.08);
+      --bg-dark: #070B16;
+      --bg-card: rgba(13, 22, 44, 0.88);
+      --border-card: rgba(56, 189, 248, 0.20);
       --primary: #FF5722;
-      --primary-glow: rgba(255, 87, 34, 0.35);
+      --primary-glow: rgba(255, 87, 34, 0.4);
       --secondary: #0284C7;
       --accent: #38BDF8;
       --success: #10B981;
       --warning: #F59E0B;
       --danger: #EF4444;
       --purple: #8B5CF6;
-      --text-main: #F1F5F9;
+      --text-main: #F8FAFC;
       --text-muted: #94A3B8;
       --font-main: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-code: 'JetBrains Mono', monospace;
     }
 
-    body {
-      background: var(--bg-dark);
+    /* Force dark background on Reveal viewport & all wrappers */
+    html, body, .reveal-viewport, .reveal {
+      background-color: #070B16 !important;
+      background: 
+        radial-gradient(circle at 10% 15%, rgba(2, 132, 199, 0.25) 0%, transparent 45%),
+        radial-gradient(circle at 90% 15%, rgba(255, 87, 34, 0.22) 0%, transparent 40%),
+        radial-gradient(circle at 50% 90%, rgba(139, 92, 246, 0.20) 0%, transparent 50%),
+        radial-gradient(circle at 85% 85%, rgba(16, 185, 129, 0.16) 0%, transparent 40%),
+        linear-gradient(155deg, #060913 0%, #0B132B 55%, #080D1A 100%) !important;
       font-family: var(--font-main);
-      color: var(--text-main);
+      color: var(--text-main) !important;
       overflow: hidden;
+    }
+
+    /* Tech dot matrix pattern */
+    .reveal::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background-image: radial-gradient(rgba(56, 189, 248, 0.10) 1.5px, transparent 1.5px);
+      background-size: 36px 36px;
+      pointer-events: none;
+      z-index: 1;
     }
 
     .reveal {
       font-family: var(--font-main);
-      font-size: 18px;
+      font-size: 21px;
       color: var(--text-main);
-    }
-
-    /* Background glow effect */
-    .reveal::before {
-      content: '';
-      position: fixed;
-      top: -20%;
-      left: -10%;
-      width: 50vw;
-      height: 50vw;
-      background: radial-gradient(circle, rgba(2, 132, 199, 0.15) 0%, rgba(10, 15, 29, 0) 70%);
-      pointer-events: none;
-      z-index: 0;
-    }
-    .reveal::after {
-      content: '';
-      position: fixed;
-      bottom: -20%;
-      right: -10%;
-      width: 50vw;
-      height: 50vw;
-      background: radial-gradient(circle, rgba(255, 87, 34, 0.12) 0%, rgba(10, 15, 29, 0) 70%);
-      pointer-events: none;
-      z-index: 0;
+      z-index: 2;
     }
 
     .reveal .slides {
@@ -86,50 +81,53 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 11px;
-      letter-spacing: 1px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
-      color: var(--text-muted);
-      border-bottom: 1px solid var(--border-card);
+      color: #94A3B8;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
       padding-bottom: 8px;
       z-index: 10;
     }
     .header-bar .tag {
-      background: rgba(2, 132, 199, 0.15);
-      color: var(--accent);
-      padding: 3px 8px;
-      border-radius: 4px;
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      font-weight: 600;
+      background: rgba(2, 132, 199, 0.25);
+      color: #38BDF8;
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.5px;
     }
 
     /* Slide Titles */
     .slide-title-group {
       margin-top: 25px;
-      margin-bottom: 15px;
+      margin-bottom: 16px;
     }
     .slide-sub {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      color: var(--accent);
+      font-size: 13.5px;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      color: #38BDF8;
       text-transform: uppercase;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
     }
     .slide-title {
-      font-size: 26px !important;
+      font-size: 32px !important;
       font-weight: 800 !important;
       letter-spacing: -0.5px;
       color: #FFFFFF !important;
       margin: 0 !important;
-      line-height: 1.2 !important;
+      line-height: 1.25 !important;
       text-transform: none !important;
     }
     .slide-title span {
-      background: linear-gradient(135deg, #FF5722 0%, #FFA726 100%);
+      background: linear-gradient(135deg, #FF6E40 0%, #FFA726 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -138,126 +136,136 @@
     .card {
       background: var(--bg-card);
       border: 1px solid var(--border-card);
-      border-radius: 12px;
-      padding: 16px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-      backdrop-filter: blur(10px);
-      transition: transform 0.2s ease, border-color 0.2s ease;
+      border-radius: 14px;
+      padding: 18px 20px;
+      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(16px);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     }
     .card:hover {
-      border-color: rgba(56, 189, 248, 0.3);
+      border-color: rgba(56, 189, 248, 0.45);
+      box-shadow: 0 12px 36px rgba(2, 132, 199, 0.25);
       transform: translateY(-2px);
     }
     .card.highlight {
-      border: 1px solid rgba(255, 87, 34, 0.35);
-      background: linear-gradient(145deg, rgba(255, 87, 34, 0.08) 0%, var(--bg-card) 100%);
+      border: 1px solid rgba(255, 87, 34, 0.45);
+      background: linear-gradient(145deg, rgba(255, 87, 34, 0.14) 0%, rgba(13, 22, 44, 0.95) 100%);
+      box-shadow: 0 10px 32px rgba(255, 87, 34, 0.2);
     }
     .card-title {
-      font-size: 15px;
+      font-size: 18px;
       font-weight: 700;
       color: #FFFFFF;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
+    }
+
+    /* Paragraphs */
+    p {
+      font-size: 15px;
+      line-height: 1.55;
+      color: #CBD5E1;
+      margin: 0 0 10px 0;
     }
 
     /* Grid Layouts */
     .grid-2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 16px;
+      gap: 18px;
       align-items: stretch;
     }
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
+      gap: 16px;
       align-items: stretch;
     }
     .grid-4 {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
+      gap: 14px;
     }
     .grid-1-2 {
       display: grid;
       grid-template-columns: 1.1fr 1.9fr;
-      gap: 16px;
+      gap: 18px;
       align-items: center;
     }
     .grid-2-1 {
       display: grid;
       grid-template-columns: 1.8fr 1.2fr;
-      gap: 16px;
+      gap: 18px;
       align-items: center;
     }
 
     /* Evidence Image Frame */
     .img-frame {
       position: relative;
-      border-radius: 10px;
+      border-radius: 12px;
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      background: #050811;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: #030610;
+      box-shadow: 0 14px 36px rgba(0,0,0,0.6);
     }
     .img-frame img {
       display: block;
       width: 100%;
       height: auto;
-      max-height: 400px;
+      max-height: 275px;
       object-fit: contain;
       background: #000;
       margin: 0 !important;
     }
     .img-badge {
       position: absolute;
-      top: 8px;
-      left: 8px;
-      background: rgba(10, 15, 29, 0.85);
+      top: 10px;
+      left: 10px;
+      background: rgba(7, 11, 22, 0.90);
       color: #38BDF8;
-      font-size: 10px;
+      font-size: 11.5px;
       font-weight: 700;
-      padding: 3px 8px;
-      border-radius: 4px;
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      backdrop-filter: blur(4px);
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      backdrop-filter: blur(6px);
       letter-spacing: 0.5px;
     }
     .img-caption {
-      font-size: 11px;
-      color: var(--text-muted);
+      font-size: 13px;
+      color: #94A3B8;
       text-align: center;
-      margin-top: 6px;
-      font-style: italic;
+      margin-top: 8px;
+      line-height: 1.45;
     }
 
     /* Badges & Pills */
     .badge {
       display: inline-block;
-      padding: 3px 8px;
-      border-radius: 4px;
-      font-size: 11px;
-      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12.5px;
+      font-weight: 700;
       letter-spacing: 0.3px;
     }
-    .badge-blue { background: rgba(2, 132, 199, 0.2); color: #38BDF8; border: 1px solid rgba(56, 189, 248, 0.4); }
-    .badge-orange { background: rgba(255, 87, 34, 0.2); color: #FF7043; border: 1px solid rgba(255, 87, 34, 0.4); }
-    .badge-green { background: rgba(16, 185, 129, 0.2); color: #34D399; border: 1px solid rgba(16, 185, 129, 0.4); }
-    .badge-purple { background: rgba(139, 92, 246, 0.2); color: #A78BFA; border: 1px solid rgba(139, 92, 246, 0.4); }
+    .badge-blue { background: rgba(2, 132, 199, 0.25); color: #38BDF8; border: 1px solid rgba(56, 189, 248, 0.45); }
+    .badge-orange { background: rgba(255, 87, 34, 0.25); color: #FF7043; border: 1px solid rgba(255, 87, 34, 0.45); }
+    .badge-green { background: rgba(16, 185, 129, 0.25); color: #34D399; border: 1px solid rgba(16, 185, 129, 0.45); }
+    .badge-purple { background: rgba(139, 92, 246, 0.25); color: #A78BFA; border: 1px solid rgba(139, 92, 246, 0.45); }
 
     /* Code Blocks */
     pre.code-box {
-      background: #050811 !important;
-      border: 1px solid rgba(255, 255, 255, 0.1) !important;
-      border-radius: 8px !important;
-      padding: 12px !important;
+      background: #030610 !important;
+      border: 1px solid rgba(255, 255, 255, 0.14) !important;
+      border-radius: 10px !important;
+      padding: 12px 14px !important;
       font-family: var(--font-code) !important;
-      font-size: 11px !important;
-      line-height: 1.4 !important;
+      font-size: 13px !important;
+      line-height: 1.45 !important;
       color: #E2E8F0 !important;
-      box-shadow: inset 0 2px 8px rgba(0,0,0,0.5);
+      box-shadow: inset 0 2px 10px rgba(0,0,0,0.65);
       margin: 8px 0 !important;
       overflow-x: auto;
     }
@@ -273,17 +281,17 @@
       margin: 0;
     }
     ul.check-list li {
-      font-size: 13px;
-      margin-bottom: 8px;
+      font-size: 15px;
+      margin-bottom: 9px;
       display: flex;
       align-items: flex-start;
-      gap: 8px;
-      line-height: 1.4;
+      gap: 10px;
+      line-height: 1.5;
       color: #CBD5E1;
     }
     ul.check-list li i {
       margin-top: 3px;
-      font-size: 12px;
+      font-size: 14px;
       flex-shrink: 0;
     }
 
@@ -291,70 +299,73 @@
     table.data-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 12px;
-      margin-top: 6px;
+      font-size: 14px;
+      margin-top: 8px;
     }
     table.data-table th {
-      background: rgba(2, 132, 199, 0.15);
+      background: rgba(2, 132, 199, 0.22);
       color: #38BDF8;
-      padding: 8px 10px;
+      padding: 9px 12px;
       text-align: left;
       font-weight: 700;
-      border-bottom: 1px solid rgba(56, 189, 248, 0.3);
+      border-bottom: 1px solid rgba(56, 189, 248, 0.4);
     }
     table.data-table td {
-      padding: 7px 10px;
-      border-bottom: 1px solid var(--border-card);
-      color: #CBD5E1;
+      padding: 8px 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      color: #E2E8F0;
     }
     table.data-table tr:hover td {
-      background: rgba(255, 255, 255, 0.03);
+      background: rgba(255, 255, 255, 0.04);
     }
 
     /* Big Numbers */
     .stat-box {
       text-align: center;
-      padding: 12px;
+      padding: 14px;
       background: var(--bg-card);
-      border-radius: 10px;
+      border-radius: 12px;
       border: 1px solid var(--border-card);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
     }
     .stat-num {
-      font-size: 28px;
+      font-size: 38px;
       font-weight: 800;
       color: #FFFFFF;
       line-height: 1;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
     .stat-label {
-      font-size: 11px;
-      color: var(--text-muted);
+      font-size: 12.5px;
+      color: #94A3B8;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.8px;
+      font-weight: 600;
     }
 
     /* Reveal Progress Bar & Controls Customization */
     .reveal .progress {
-      height: 4px;
+      height: 5px;
       color: #FF5722;
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.12);
     }
     .reveal .slide-number {
       font-family: var(--font-code);
-      font-size: 12px;
-      background: rgba(10, 15, 29, 0.8);
+      font-size: 13.5px;
+      background: rgba(7, 11, 22, 0.9);
       border: 1px solid var(--border-card);
-      border-radius: 4px;
-      color: var(--accent);
-      right: 20px;
-      bottom: 20px;
-      padding: 4px 8px;
+      border-radius: 6px;
+      color: #38BDF8;
+      right: 25px;
+      bottom: 25px;
+      padding: 6px 12px;
+      font-weight: 700;
     }
 
     /* Glow pulse animation for highlights */
     @keyframes pulse-glow {
       0% { box-shadow: 0 0 15px rgba(255, 87, 34, 0.2); }
-      50% { box-shadow: 0 0 25px rgba(255, 87, 34, 0.5); }
+      50% { box-shadow: 0 0 28px rgba(255, 87, 34, 0.55); }
       100% { box-shadow: 0 0 15px rgba(255, 87, 34, 0.2); }
     }
     .glow {
@@ -376,40 +387,40 @@
           <span>Semester Fall 2026</span>
         </div>
         
-        <div style="margin-top: 55px; text-align: center;">
-          <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255, 87, 34, 0.15); border: 1px solid rgba(255, 87, 34, 0.4); padding: 6px 16px; border-radius: 20px; font-size: 12px; color: #FFA726; font-weight: 700; margin-bottom: 16px;">
+        <div style="margin-top: 50px; text-align: center;">
+          <div style="display: inline-flex; align-items: center; gap: 10px; background: rgba(255, 87, 34, 0.2); border: 1px solid rgba(255, 87, 34, 0.5); padding: 8px 22px; border-radius: 24px; font-size: 14px; color: #FFA726; font-weight: 800; margin-bottom: 20px; letter-spacing: 0.5px;">
             <i class="fa-solid fa-fire"></i> GOOGLE CLOUD & FIREBASE BACKEND SUITE
           </div>
           
-          <h1 style="font-size: 42px; font-weight: 900; letter-spacing: -1px; margin: 0 0 12px 0; color: #FFFFFF; line-height: 1.15;">
+          <h1 style="font-size: 50px; font-weight: 900; letter-spacing: -1.5px; margin: 0 0 16px 0; color: #FFFFFF; line-height: 1.2;">
             EventHub — Kiến Trúc & Tích Hợp<br>
-            <span style="background: linear-gradient(135deg, #FF5722 0%, #38BDF8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            <span style="background: linear-gradient(135deg, #FF6E40 0%, #38BDF8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
               Hệ Thống Dịch Vụ Đám Mây Firebase
             </span>
           </h1>
           
-          <p style="font-size: 15px; color: #94A3B8; max-width: 800px; margin: 0 auto 30px auto; line-height: 1.5;">
+          <p style="font-size: 18px; color: #CBD5E1; max-width: 860px; margin: 0 auto 35px auto; line-height: 1.6;">
             Báo cáo toàn diện 6 dịch vụ Firebase (Auth, Storage, FCM, Analytics, Crashlytics, Remote Config), 
             kiểm thử tự động ARTEMIS và tối ưu mã nguồn với AI Code Review.
           </p>
 
-          <div style="display: flex; justify-content: center; gap: 18px; margin-bottom: 25px;">
-            <div class="card" style="padding: 12px 24px; text-align: center; border-color: rgba(56, 189, 248, 0.3);">
-              <div style="font-size: 11px; color: #94A3B8; text-transform: uppercase;">Nhóm thực hiện</div>
-              <div style="font-size: 16px; font-weight: 700; color: #38BDF8;"><i class="fa-solid fa-users"></i> Nhóm 4 (Group 4)</div>
+          <div style="display: flex; justify-content: center; gap: 22px; margin-bottom: 30px;">
+            <div class="card" style="padding: 16px 28px; text-align: center; border-color: rgba(56, 189, 248, 0.35);">
+              <div style="font-size: 12.5px; color: #94A3B8; text-transform: uppercase; font-weight: 600; letter-spacing: 0.8px;">Nhóm thực hiện</div>
+              <div style="font-size: 19px; font-weight: 800; color: #38BDF8; margin-top: 4px;"><i class="fa-solid fa-users"></i> Nhóm 4 (Group 4)</div>
             </div>
-            <div class="card" style="padding: 12px 24px; text-align: center; border-color: rgba(255, 87, 34, 0.3);">
-              <div style="font-size: 11px; color: #94A3B8; text-transform: uppercase;">Project ID</div>
-              <div style="font-size: 16px; font-weight: 700; color: #FF7043;"><i class="fa-solid fa-cloud"></i> eventhub-group4</div>
+            <div class="card" style="padding: 16px 28px; text-align: center; border-color: rgba(255, 87, 34, 0.35);">
+              <div style="font-size: 12.5px; color: #94A3B8; text-transform: uppercase; font-weight: 600; letter-spacing: 0.8px;">Project ID</div>
+              <div style="font-size: 19px; font-weight: 800; color: #FF7043; margin-top: 4px;"><i class="fa-solid fa-cloud"></i> eventhub-group4</div>
             </div>
-            <div class="card" style="padding: 12px 24px; text-align: center; border-color: rgba(16, 185, 129, 0.3);">
-              <div style="font-size: 11px; color: #94A3B8; text-transform: uppercase;">Test Coverage</div>
-              <div style="font-size: 16px; font-weight: 700; color: #34D399;"><i class="fa-solid fa-shield-check"></i> 65 Unit + 25 ARTEMIS</div>
+            <div class="card" style="padding: 16px 28px; text-align: center; border-color: rgba(16, 185, 129, 0.35);">
+              <div style="font-size: 12.5px; color: #94A3B8; text-transform: uppercase; font-weight: 600; letter-spacing: 0.8px;">Test Coverage</div>
+              <div style="font-size: 19px; font-weight: 800; color: #34D399; margin-top: 4px;"><i class="fa-solid fa-shield-check"></i> 65 Unit + 25 ARTEMIS</div>
             </div>
           </div>
 
-          <div style="font-size: 12px; color: #64748B;">
-            Thành viên chính: <strong>Nguyễn Trọng Kiệt (KietNTSE)</strong> & Nhóm 4 &bull; Giảng viên hướng dẫn: Bộ môn SE FPT University
+          <div style="font-size: 14px; color: #94A3B8;">
+            Thành viên chính: <strong style="color: #FFFFFF;">Nguyễn Trọng Kiệt (KietNTSE)</strong> & Nhóm 4 &bull; Giảng viên hướng dẫn: <strong style="color: #FFFFFF;">Bộ môn SE FPT University</strong>
           </div>
         </div>
       </section>
@@ -2059,31 +2070,31 @@ Widget build(BuildContext context, WidgetRef ref) {
           <span>EventHub Group 4</span>
         </div>
 
-        <div style="margin-top: 60px; text-align: center;">
-          <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.4); padding: 6px 16px; border-radius: 20px; font-size: 12px; color: #34D399; font-weight: 700; margin-bottom: 20px;">
+        <div style="margin-top: 55px; text-align: center;">
+          <div style="display: inline-flex; align-items: center; gap: 10px; background: rgba(16, 185, 129, 0.2); border: 1px solid rgba(16, 185, 129, 0.5); padding: 8px 22px; border-radius: 24px; font-size: 14px; color: #34D399; font-weight: 800; margin-bottom: 22px; letter-spacing: 0.5px;">
             <i class="fa-solid fa-check-double"></i> MISSION ACCOMPLISHED
           </div>
 
-          <h1 style="font-size: 46px; font-weight: 900; letter-spacing: -1px; margin: 0 0 16px 0; color: #FFFFFF;">
+          <h1 style="font-size: 52px; font-weight: 900; letter-spacing: -1.5px; margin: 0 0 18px 0; color: #FFFFFF; line-height: 1.2;">
             Cảm Ơn Thầy Cô & Các Bạn<br>
-            <span style="background: linear-gradient(135deg, #FF5722 0%, #38BDF8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            <span style="background: linear-gradient(135deg, #FF6E40 0%, #38BDF8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
               Đã Lắng Nghe Phần Trình Bày!
             </span>
           </h1>
 
-          <p style="font-size: 16px; color: #94A3B8; max-width: 700px; margin: 0 auto 30px auto; line-height: 1.5;">
+          <p style="font-size: 18px; color: #CBD5E1; max-width: 780px; margin: 0 auto 35px auto; line-height: 1.6;">
             Nhóm 4 sẵn sàng trả lời các câu hỏi phản biện từ Hội đồng và thực hiện Live Demo ứng dụng EventHub.
           </p>
 
-          <div style="display: inline-flex; gap: 20px;">
-            <div class="card" style="padding: 16px 32px; text-align: center; border-color: rgba(56, 189, 248, 0.3);">
-              <div style="font-size: 18px; font-weight: 800; color: #38BDF8;"><i class="fa-solid fa-comments"></i> Q & A SESSION</div>
-              <div style="font-size: 12px; color: #94A3B8; margin-top: 4px;">Hỏi đáp &amp; Phản biện</div>
+          <div style="display: inline-flex; gap: 24px;">
+            <div class="card" style="padding: 18px 36px; text-align: center; border-color: rgba(56, 189, 248, 0.4);">
+              <div style="font-size: 20px; font-weight: 800; color: #38BDF8;"><i class="fa-solid fa-comments"></i> Q & A SESSION</div>
+              <div style="font-size: 13.5px; color: #94A3B8; margin-top: 6px;">Hỏi đáp &amp; Phản biện</div>
             </div>
 
-            <div class="card" style="padding: 16px 32px; text-align: center; border-color: rgba(255, 87, 34, 0.3);">
-              <div style="font-size: 18px; font-weight: 800; color: #FF7043;"><i class="fa-solid fa-play"></i> LIVE DEMO</div>
-              <div style="font-size: 12px; color: #94A3B8; margin-top: 4px;">Demo trực tiếp trên Android Emulator</div>
+            <div class="card" style="padding: 18px 36px; text-align: center; border-color: rgba(255, 87, 34, 0.4);">
+              <div style="font-size: 20px; font-weight: 800; color: #FF7043;"><i class="fa-solid fa-play"></i> LIVE DEMO</div>
+              <div style="font-size: 13.5px; color: #94A3B8; margin-top: 6px;">Demo trực tiếp trên Android Emulator</div>
             </div>
           </div>
         </div>
@@ -2104,8 +2115,8 @@ Widget build(BuildContext context, WidgetRef ref) {
       transition: 'slide',
       transitionSpeed: 'default',
       backgroundTransition: 'fade',
-      width: 1200,
-      height: 675,
+      width: 1280,
+      height: 720,
       margin: 0.04,
       minScale: 0.2,
       maxScale: 2.0
