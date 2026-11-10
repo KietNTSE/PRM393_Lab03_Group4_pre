@@ -16,10 +16,14 @@ File slide được đặt trực tiếp tại `slides/index.html`. Để chia s
    ```
 2. Vào GitHub Repository $\rightarrow$ **Settings** $\rightarrow$ chọn mục **Pages** (cột bên trái).
 3. Tại phần **Build and deployment**:
-   - **Source**: Chọn `Deploy from a branch`.
-   - **Branch**: Chọn `main`, thư mục `/ (root)`.
-4. Sau 1–2 phút, link slide online của bạn sẽ hoạt động tại:
-   `https://<username>.github.io/PRM393_Lab03_Group4/slides/`
+   - **Cách 1 (Tự động qua GitHub Actions - Khuyên dùng)**:
+     - **Source**: Chọn `GitHub Actions`. Workflow `.github/workflows/deploy-slides.yml` đã được cấu hình sẵn sẽ tự động kích hoạt và deploy mỗi khi push code lên `main`.
+   - **Cách 2 (Deploy trực tiếp từ Branch)**:
+     - **Source**: Chọn `Deploy from a branch`.
+     - **Branch**: Chọn `main`, thư mục `/ (root)`. Nhấn **Save**.
+4. Sau 1–2 phút, link slide online hoạt động tại:
+   - Repo nhóm chính: `https://thinhcri.github.io/PRM393_Lab03_Group4/slides/`
+   - Repo fork: `https://kietntse.github.io/PRM393_Lab03_Group4_pre/slides/`
 
 ---
 
