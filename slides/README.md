@@ -46,19 +46,32 @@ Reveal.js hỗ trợ chế độ in PDF chuyên dụng giữ nguyên độ nét 
 
 ---
 
-## 3. Cấu Trúc Nội Dung 14 Slide
+## 3. Cấu Trúc Nội Dung 25 Slide Chuẩn Guideline (1 / 25 đến 25 / 25)
 
-- **Slide 01**: **Overview** — Giới thiệu EventHub trong 30 giây, công nghệ & nhóm tác giả.
-- **Slide 02**: **Context & Persona** — Bối cảnh hoạt động CLB FPTU TP.HCM & 3 Persona (P01 sinh viên FPTU, P02 khách ngoài trường, P03 tham gia tự do).
-- **Slide 03**: **Pain Points & Goals** — 3 điểm nghẽn thực tế & Tiêu chí thành công Lab 2 (đăng ký $\le 90s$, QR $\le 30s$).
-- **Slide 04**: **Design Traceability** — Hiện thực hóa Design System Lab 2 (Tokens, Typography, 10 Reusable Widgets, truy vết D01–D04).
-- **Slide 05**: **System Architecture** — Kiến trúc phân tầng MVVM + Riverpod, Dependency Injection, State tường minh.
-- **Slide 06**: **Firebase Auth & Firestore** — Google Sign-In, xác minh email, Firestore Transaction nguyên tử `getAfter()`.
-- **Slide 07**: **PDF Report & Storage** — Xuất PDF lịch tham gia tiếng Việt trên máy và tích hợp upload đám mây (Cloudinary Free).
-- **Slide 08**: **FCM Push Notifications** — Bằng chứng nhận thông báo đẩy ở cả 3 trạng thái (Foreground, Background, Terminated) và đồng bộ Inbox.
-- **Slide 09**: **Analytics DebugView** — Kế hoạch 14 sự kiện đo lường không PII, bằng chứng DebugView thực tế trên Console.
-- **Slide 10**: **Crashlytics & Remote Config** — Non-fatal upload error thật + native test crash; đổi tham số gợi ý từ Console không rebuild app.
-- **Slide 11**: **Demo Workflow 1 (F1: Khám phá & Đăng ký)** — Happy path & Exception paths (hết chỗ, quá hạn, thiếu khóa K, chống trùng bằng `operationId`).
-- **Slide 12**: **Demo Workflow 2 (F2 & F4A: Hủy & Quét QR)** — Xem lịch, hủy đơn bảo toàn chỗ, quét QR băm SHA-256 xác thực trực tiếp qua Security Rules.
-- **Slide 13**: **Testing & AI Code Review** — 65 automated tests pass, 25 kịch bản ARTEMIS, 5 findings AI review được khắc phục qua các commit độc lập.
-- **Slide 14**: **Conclusion & Deliverables** — Nghiệm thu đồ án, tính trung thực của bằng chứng và các liên kết bàn giao.
+Bộ slide tái hiện chuẩn xác 100% từng slide theo tài liệu **PRM393 / HƯỚNG DẪN CHUẨN BỊ LAB 3 THỰC HÀNH**:
+
+- **Slide 01 (1/25)**: **TỔNG QUAN** — Từ thiết kế Lab 2 đến ứng dụng Flutter kết nối đám mây.
+- **Slide 02 (2/25)**: **MÔI TRƯỜNG** — Chuẩn bị trước khi thực hành (Flutter, Android, Firebase CLI, ARTEMIS, tài khoản test).
+- **Slide 03 (3/25)**: **KHỞI TẠO** — Thiết lập dự án Firebase (ID Android, gói FlutterFire, flutterfire configure, Console).
+- **Slide 04 (4/25)**: **KIẾN TRÚC** — Ranh giới tích hợp theo MVVM (View $\rightarrow$ ViewModel $\rightarrow$ Service $\rightarrow$ Firebase SDK).
+- **Slide 05 (5/25)**: **FIREBASE 01 - KHÁI NIỆM** — Firebase Authentication (Định nghĩa, Vai trò, Cách hoạt động, Yêu cầu Lab 3).
+- **Slide 06 (6/25)**: **FIREBASE 01 - TÍCH HỢP** — Firebase Authentication (Bật Google, SHA Android, authStateChanges, xóa state khi logout).
+- **Slide 07 (7/25)**: **FIREBASE 01 - KIỂM CHỨNG** — Firebase Authentication (Trình diễn Google Sign-In, ảnh trước/sau, Console Users, thông báo lỗi).
+- **Slide 08 (8/25)**: **FIREBASE 02 - KHÁI NIỆM** — Firebase Cloud Storage (Định nghĩa, Vai trò, Cách hoạt động reports/{uid}/..., Yêu cầu Lab 3).
+- **Slide 09 (9/25)**: **FIREBASE 02 - TÍCH HỢP** — Firebase Cloud Storage (Tạo PDF, tải lên hiển thị tiến độ %, URL tải xuống, storage.rules).
+- **Slide 10 (10/25)**: **FIREBASE 02 - KIỂM CHỨNG** — Firebase Cloud Storage (Tiến độ & URL Console, storage.rules trên GitHub, cấm allow true).
+- **Slide 11 (11/25)**: **FIREBASE 03 - KHÁI NIỆM** — Firebase Cloud Messaging (Định nghĩa, Vai trò, 3 trạng thái, Yêu cầu Lab 3).
+- **Slide 12 (12/25)**: **FIREBASE 03 - TÍCH HỢP** — Firebase Cloud Messaging (Quyền Android 13+, xử lý 3 trạng thái, lưu Hộp thư, chạm điều hướng).
+- **Slide 13 (13/25)**: **FIREBASE 03 - KIỂM CHỨNG** — Firebase Cloud Messaging (Gửi thử từ Console, ghi nhận 3 trạng thái, kiểm tra từ chối quyền, ghi token).
+- **Slide 14 (14/25)**: **FIREBASE 04 - KHÁI NIỆM** — Google Analytics for Firebase (Định nghĩa, Vai trò, Cấu trúc sự kiện + tham số, Yêu cầu Lab 3).
+- **Slide 15 (15/25)**: **FIREBASE 04 - TÍCH HỢP** — Firebase Analytics (docs/analytics-plan.md, ít nhất 7 sự kiện, snake_case, user ID sau login, No PII).
+- **Slide 16 (16/25)**: **FIREBASE 04 - KIỂM CHỨNG** — Firebase Analytics (DebugView Console, ảnh chụp từng sự kiện, đối chiếu tiêu chí Lab 2).
+- **Slide 17 (17/25)**: **FIREBASE 05 - KHÁI NIỆM** — Firebase Crashlytics (Định nghĩa, Vai trò, Cách hoạt động, Yêu cầu Lab 3).
+- **Slide 18 (18/25)**: **FIREBASE 05 - TÍCH HỢP** — Firebase Crashlytics (Khởi tạo error handler, gửi non-fatal từ luồng thật, user ID & custom key, crash test).
+- **Slide 19 (19/25)**: **FIREBASE 05 - KIỂM CHỨNG** — Firebase Crashlytics (Console hiển thị non-fatal & crash, thông báo UI, không kích hoạt crash ở luồng thường).
+- **Slide 20 (20/25)**: **FIREBASE 06 - KHÁI NIỆM** — Firebase Remote Config (Định nghĩa, Vai trò, Cách hoạt động, Yêu cầu Lab 3).
+- **Slide 21 (21/25)**: **FIREBASE 06 - TÍCH HỢP** — Firebase Remote Config (2 tham số + default values, RemoteConfigService, thay đổi Console không rebuild).
+- **Slide 22 (22/25)**: **FIREBASE 06 - KIỂM CHỨNG** — Firebase Remote Config (Ảnh Console & UI trước/sau, kiểm tra fallback khi mất mạng, giải thích cache & fetch).
+- **Slide 23 (23/25)**: **ĐẢM BẢO CHẤT LƯỢNG** — ARTEMIS — Chuẩn bị kiểm thử tự động đầu cuối (Ít nhất 10 ca, chạy 3 lần, nhánh lỗi, Android gốc, phiên khám phá 15–30p).
+- **Slide 24 (24/25)**: **RÀ SOÁT KỸ THUẬT** — AI Code Review — Quyết định dựa trên bằng chứng (Review PR #3, 5 findings thuộc 2+ nhóm lỗi, commit sửa độc lập).
+- **Slide 25 (25/25)**: **SẴN SÀNG CHO LAB 3** — Danh sách kiểm tra và sản phẩm nộp (Đủ 6 dịch vụ có lỗi, bộ tài liệu, nhật ký & Console, GitHub/PDF/Video).
